@@ -37,6 +37,7 @@ public class LeechAI : EnemyClass
         timer = wanderTimer;
         agent = GetComponent<NavMeshAgent>();
         target = PlayerManager.instance.player.transform;
+        playerHealth = FindObjectOfType<Health>();
     }
     bool followingPlayer;
     bool cantSeePlayer;
