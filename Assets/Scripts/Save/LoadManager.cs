@@ -41,7 +41,7 @@ public class LoadManager : MonoBehaviour
         //destroy enemies and place new ones
         foreach (EnemyClass enemy in GameObject.FindObjectsOfType<EnemyClass>())
         {
-            Destroy(enemy);
+            Destroy(enemy.gameObject);
         }
         List<float[]> enemyArray = SaveGame.LoadEnemies(saveName);
         /* Enemy Data takes the following form
@@ -56,7 +56,7 @@ public class LoadManager : MonoBehaviour
             {
                 GameObject newLeech = Instantiate(Leech, new Vector3(enemyData[0], enemyData[1], enemyData[2]), new Quaternion(enemyData[3], enemyData[4], enemyData[5], enemyData[6]));
                 LeechAI newLeechAI = newLeech.GetComponent<LeechAI>();
-                newLeechAI.playerHealth = FindObjectOfType<Health>();
+                //newLeechAI.playerHealth = FindObjectOfType<Health>();
                 newLeechAI.setHealth(enemyData[7]);
             }
         }
@@ -65,6 +65,7 @@ public class LoadManager : MonoBehaviour
     //loops through all the keys and checks if any were saved. If they were, add them to the player's inventory
     public void loadItems(string saveName)
     {
+        //player.keys.Clear();
         foreach (string[] name in db.getInventory(saveName))
         {
             foreach (GameObject key in keys)
