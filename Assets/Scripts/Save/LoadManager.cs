@@ -38,6 +38,7 @@ public class LoadManager : MonoBehaviour
     {
         player.loadGame(saveName);
         loadItems(saveName);
+        //destroy enemies and place new ones
         foreach (EnemyClass enemy in GameObject.FindObjectsOfType<EnemyClass>())
         {
             Destroy(enemy);
@@ -47,6 +48,7 @@ public class LoadManager : MonoBehaviour
          * position x|y|z| rotation x|y|z|w| health| type|
          *          0|1|2|          3|4|5|6|      7|    8|
          */
+        //for every saved leech, create a leech and assign it data
         foreach (float[] enemyData in enemyArray)
         {
             //Leech
@@ -60,6 +62,7 @@ public class LoadManager : MonoBehaviour
         }
     }
 
+    //loops through all the keys and checks if any were saved. If they were, add them to the player's inventory
     public void loadItems(string saveName)
     {
         foreach (string[] name in db.getInventory(saveName))
