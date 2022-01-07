@@ -10,16 +10,18 @@ public class DoorPuzzle : MonoBehaviour
     private bool isOpen = false;
 
 
+    //opens door
     public void Open()
     {
+        //if the player has the key and the door isn't open
         if (doesPlayerHaveKey() && !isOpen)
         {
-            Debug.Log(name + "is open");
-            transform.Rotate(new Vector3(0, 0, openAngle));
+            transform.Rotate(new Vector3(0, 0, openAngle));//open door
             isOpen = true;
         }
     }
 
+    //iterates through each key the player has and sees if it has the correct one
     public bool doesPlayerHaveKey()
     {
         foreach (GameObject keys in player.keys)
