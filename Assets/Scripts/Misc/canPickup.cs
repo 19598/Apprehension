@@ -18,9 +18,6 @@ public class canPickup : MonoBehaviour
             player.GetComponent<PlayerController>().keys.Add(this.gameObject);
 
             hasPickedUp = true;
-        }
-        if (hasPickedUp)
-        {
             this.gameObject.SetActive(false);
         }
     }

@@ -83,7 +83,6 @@ public static class SaveGame
         catch {
             
         }
-        Debug.Log("Saved");
 
         List<float[]> enemyData = new List<float[]>();
         /*Enemy Data takes the following form

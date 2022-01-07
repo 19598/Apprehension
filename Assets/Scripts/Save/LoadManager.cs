@@ -8,6 +8,7 @@ public class LoadManager : MonoBehaviour
     public GameObject BigBoy;
     public PlayerController player;
     public Database db;
+    public List<GameObject> keys;
 
     void Start()
     {
@@ -27,17 +28,20 @@ public class LoadManager : MonoBehaviour
 
     public void saveItems(string saveName)
     {
-        /*List<Key> keys = GameObject.FindObjectOfType<Key>();
-        foreach (Key key in keys)
+        foreach (GameObject key in player.keys)
         {
-            db.addItem(saveName, key.name, 1);
-        }*/
+            db.addItem(saveName, key.GetComponent<Key>().name, 1);
+        }
     }
 
     public void Load(string saveName)
     {
         player.loadGame(saveName);
         loadItems(saveName);
+        foreach (EnemyClass enemy in GameObject.FindObjectsOfType<EnemyClass>())
+        {
+            Destroy(enemy);
+        }
         List<float[]> enemyArray = SaveGame.LoadEnemies(saveName);
         /* Enemy Data takes the following form
          * position x|y|z| rotation x|y|z|w| health| type|
@@ -53,13 +57,6 @@ public class LoadManager : MonoBehaviour
                 newLeechAI.playerHealth = FindObjectOfType<Health>();
                 newLeechAI.setHealth(enemyData[7]);
             }
-            //Manananggal
-            if (enemyData[8] == 1)
-            {
-                GameObject newBigBoy = Instantiate(BigBoy, new Vector3(enemyData[0], enemyData[1], enemyData[2]), new Quaternion(enemyData[3], enemyData[4], enemyData[5], enemyData[6]));
-                BigBoyAI newBigBoyAI = newBigBoy.GetComponent<BigBoyAI>();
-                newBigBoyAI.setHealth(enemyData[7]);
-            }
         }
     }
 
@@ -67,7 +64,14 @@ public class LoadManager : MonoBehaviour
     {
         foreach (string[] name in db.getInventory(saveName))
         {
-            
+            foreach (GameObject key in keys)
+            {
+                if (key.GetComponent<Key>().name == name[0] && float.Parse(name[1]) > 0)
+                {
+                    player.keys.Add(key);
+                    key.SetActive(false);
+                }
+            }
         }
     }
 }

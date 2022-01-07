@@ -14,8 +14,7 @@ public class DoorPuzzle : MonoBehaviour
     {
         if (doesPlayerHaveKey() && !isOpen)
         {
-            Debug.Log("Opened");
-            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, openAngle);
+            transform.Rotate(new Vector3(0, 0, openAngle));
             isOpen = true;
         }
     }

@@ -3684,9 +3684,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7206023eac6b6740997daf811bca995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: {fileID: 416519232}
+  key: {fileID: 1941572138}
   player: {fileID: 2056153019}
-  openAngle: -98.95
+  openAngle: 113.8
 --- !u!4 &137152790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2642311626253648332, guid: ba93fc15ee14dbf45b36696cb946115f, type: 3}
@@ -13370,6 +13370,19 @@ MonoBehaviour:
   display: {fileID: 1150968495}
   player: {fileID: 2056153015}
   dimensions: 1
+--- !u!114 &416519236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416519232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db2f18b4182ba2f4ca47e5014fec162a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Skull Key
 --- !u!4 &416541880 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6404306957149010780, guid: 1e5e6584f4b365c49a0edc23ccafc87b, type: 3}
@@ -15903,19 +15916,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2642311626253648332, guid: ba93fc15ee14dbf45b36696cb946115f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.01912682
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2642311626253648332, guid: ba93fc15ee14dbf45b36696cb946115f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.01912682
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2642311626253648332, guid: ba93fc15ee14dbf45b36696cb946115f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7068481
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2642311626253648332, guid: ba93fc15ee14dbf45b36696cb946115f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7068481
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2642311626253648332, guid: ba93fc15ee14dbf45b36696cb946115f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15927,11 +15940,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2642311626253648332, guid: ba93fc15ee14dbf45b36696cb946115f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 183.1
+      value: -180
       objectReference: {fileID: 0}
     - target: {fileID: 2642311626253688300, guid: ba93fc15ee14dbf45b36696cb946115f, type: 3}
       propertyPath: m_Name
       value: Door_Wooden_Round_Left (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642311626253688300, guid: ba93fc15ee14dbf45b36696cb946115f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba93fc15ee14dbf45b36696cb946115f, type: 3}
@@ -18568,7 +18585,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0186c8a457ae9a143a8e24e2162b58b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: bf5079106065ff6428affdbc037c51d7, type: 3}
+    Volume: 1
+    Pitch: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &560674132
 Transform:
   m_ObjectHideFlags: 0
@@ -24427,6 +24450,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d157978297aa03d40bfe76f9decb9828, type: 3}
+--- !u!1 &722386414 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4573940403621388067, guid: 068372e4a6363b84c874046fb49618ed, type: 3}
+  m_PrefabInstance: {fileID: 1732267128}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &722386418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722386414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db2f18b4182ba2f4ca47e5014fec162a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Key1
 --- !u!4 &723231366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1315118685817928585, guid: cd543225cb67e3649a9ff72bb9a5dbf3, type: 3}
@@ -33439,9 +33480,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7206023eac6b6740997daf811bca995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: {fileID: 1941572138}
+  key: {fileID: 416519232}
   player: {fileID: 2056153019}
-  openAngle: -200
+  openAngle: -110
 --- !u!1 &1037103908
 GameObject:
   m_ObjectHideFlags: 0
@@ -37173,6 +37214,14 @@ PrefabInstance:
     - target: {fileID: 5362895397313196842, guid: 8b456a21699676a4b94bd6288356bf89, type: 3}
       propertyPath: m_Name
       value: Door_Wooden_Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 5362895397313196842, guid: 8b456a21699676a4b94bd6288356bf89, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5362895397313196842, guid: 8b456a21699676a4b94bd6288356bf89, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b456a21699676a4b94bd6288356bf89, type: 3}
@@ -44041,6 +44090,10 @@ PrefabInstance:
     - target: {fileID: 2642311626253688300, guid: ba93fc15ee14dbf45b36696cb946115f, type: 3}
       propertyPath: m_Name
       value: Door_Wooden_Round_Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642311626253688300, guid: ba93fc15ee14dbf45b36696cb946115f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba93fc15ee14dbf45b36696cb946115f, type: 3}
@@ -59319,9 +59372,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7206023eac6b6740997daf811bca995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: {fileID: 1941572138}
+  key: {fileID: 722386414}
   player: {fileID: 2056153019}
-  openAngle: 27.664
+  openAngle: 95
 --- !u!4 &1770931165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5362895397312900874, guid: 8b456a21699676a4b94bd6288356bf89, type: 3}
@@ -60366,6 +60419,10 @@ MonoBehaviour:
   BigBoy: {fileID: 0}
   player: {fileID: 2056153019}
   db: {fileID: 1805693037}
+  keys:
+  - {fileID: 1941572138}
+  - {fileID: 722386414}
+  - {fileID: 416519232}
 --- !u!4 &1805693036
 Transform:
   m_ObjectHideFlags: 0
@@ -63024,6 +63081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door_Wooden_Round_Left
       objectReference: {fileID: 0}
+    - target: {fileID: 2642311626253688300, guid: ba93fc15ee14dbf45b36696cb946115f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba93fc15ee14dbf45b36696cb946115f, type: 3}
 --- !u!1001 &1892404773
@@ -64173,6 +64234,19 @@ MonoBehaviour:
   degreesPerSecond: 50
   amplitude: 0.5
   frequency: 1
+--- !u!114 &1941572142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941572138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db2f18b4182ba2f4ca47e5014fec162a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Key
 --- !u!4 &1942084556 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1647271318400400278, guid: b0f3531c2bd7a7749bf566010fbab9f1, type: 3}

@@ -33,7 +33,7 @@ public class Database : MonoBehaviour
 
 		try
 		{
-			string[] items = { "1", "2", "3", "4" };
+			string[] items = { "Key", "Key1", "Skull Key"};
 			IDbCommand cmnd = dbcon.CreateCommand();
 			foreach (string item in items)
 			{
@@ -42,20 +42,6 @@ public class Database : MonoBehaviour
 			}
 		}
 		catch { }
-
-		/*
-		// Create table skills
-		q_createTable = "CREATE TABLE IF NOT EXISTS skills (skillname STRING PRIMARY KEY, level INTEGER)";
-		dbcmd.CommandText = q_createTable;
-		dbcmd.ExecuteReader();
-
-		string[] skills = { "skill1", "skill2" };
-		cmnd = dbcon.CreateCommand();
-		foreach (string skill in skills)
-		{
-			cmnd.CommandText = "INSERT INTO skills (skillname, level) VALUES (" + skill + ", 0)";
-			cmnd.ExecuteNonQuery();
-		}*/
 
 		dbcon.Close();
 	}
@@ -76,8 +62,6 @@ public class Database : MonoBehaviour
 		while (reader.Read())
 		{
 			items.Add(new string[] {reader[0].ToString(), reader[1].ToString()});
-			Debug.Log("item name: " + reader[0].ToString());
-			Debug.Log("quantity: " + reader[1].ToString());
 		}
 		dbcon.Close();
 		return items;
@@ -89,69 +73,7 @@ public class Database : MonoBehaviour
 		IDbConnection dbcon = new SqliteConnection(connection);
 		dbcon.Open();
 		IDbCommand cmnd = dbcon.CreateCommand();
-		cmnd.CommandText = "UPDATE inventory SET quantity = (SELECT quantity FROM inventory WHERE itemname = " + item + ") + " + amount + " WHERE itemname = " + item;
+		cmnd.CommandText = "UPDATE inventory SET quantity = (SELECT quantity FROM inventory WHERE itemname = \"" + item + "\") + " + amount + " WHERE itemname = \"" + item + "\"";
 		cmnd.ExecuteNonQuery();
-	}
-
-	/*
-	public List<string[]> getSkills()
-	{
-		List<string[]> skills = new List<string[]>();
-		string connection = "URI=file:" + Application.persistentDataPath + "/" + "GameDB";
-		IDbConnection dbcon = new SqliteConnection(connection);
-		dbcon.Open();
-
-		IDbCommand cmnd_read = dbcon.CreateCommand();
-		IDataReader reader;
-		string query = "SELECT skillname, level FROM skills";
-		cmnd_read.CommandText = query;
-		reader = cmnd_read.ExecuteReader();
-
-		while (reader.Read())
-		{
-			skills.Add(new string[] { reader[0].ToString(), reader[1].ToString() });
-			Debug.Log("skill name: " + reader[0].ToString());
-			Debug.Log("level: " + reader[1].ToString());
-		}
-		dbcon.Close();
-		return skills;
-	}
-
-	public void addSkill(string skill, int amount)
-	{
-		string connection = "URI=file:" + Application.persistentDataPath + "/" + "GameDB";
-		IDbConnection dbcon = new SqliteConnection(connection);
-		dbcon.Open();
-		IDbCommand cmnd = dbcon.CreateCommand();
-		cmnd.CommandText = "UPDATE skills SET level = (SELECT level FROM skills WHERE skillname = " + skill + ") + " + amount + " WHERE skillname = " + skill;
-		cmnd.ExecuteNonQuery();
-	}*/
-
-	public void insert(string table, string column, string value)
-	{
-		string connection = "URI=file:" + Application.persistentDataPath + "/" + "GameDB";
-		IDbConnection dbcon = new SqliteConnection(connection);
-		dbcon.Open();
-
-		IDbCommand cmnd = dbcon.CreateCommand();
-		cmnd.CommandText = "UPDATE " + table + " SET " + column + " = " + value;
-		cmnd.ExecuteNonQuery();
-
-		dbcon.Close();
-	}
-
-	public string selectValue(string table, string column)
-	{
-		string connection = "URI=file:" + Application.persistentDataPath + "/" + "GameDB";
-		IDbConnection dbcon = new SqliteConnection(connection);
-		dbcon.Open();
-
-		IDbCommand cmnd_read = dbcon.CreateCommand();
-		IDataReader reader;
-		string query = "SELECT " + column + " FROM " + table;
-		cmnd_read.CommandText = query;
-		reader = cmnd_read.ExecuteReader();
-		return reader[0].ToString();
-
 	}
 }
