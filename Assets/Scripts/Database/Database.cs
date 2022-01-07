@@ -33,7 +33,7 @@ public class Database : MonoBehaviour
 
 		try
 		{
-			string[] items = { "Key", "Key1", "Skull Key"};
+			string[] items = { "Key1", "Key2", "Key3", "Key4"};
 			IDbCommand cmnd = dbcon.CreateCommand();
 			foreach (string item in items)
 			{

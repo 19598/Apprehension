@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DoorPuzzle : MonoBehaviour
 {
-    public GameObject key;
+    public Key key;
     public PlayerController player;
     public float openAngle;
     private bool isOpen = false;
@@ -14,6 +14,7 @@ public class DoorPuzzle : MonoBehaviour
     {
         if (doesPlayerHaveKey() && !isOpen)
         {
+            Debug.Log(name + "is open");
             transform.Rotate(new Vector3(0, 0, openAngle));
             isOpen = true;
         }
@@ -21,21 +22,14 @@ public class DoorPuzzle : MonoBehaviour
 
     public bool doesPlayerHaveKey()
     {
-        try
+        foreach (GameObject keys in player.keys)
         {
-            if (player.keys.BinarySearch(key) >= 0)
+            if (keys.GetComponent<Key>().name == key.name)
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
         }
-        catch
-        {
-            return false;
-        }
+        return false;
     }
 
     void Update()
