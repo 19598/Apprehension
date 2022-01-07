@@ -25,12 +25,10 @@ public class PauseMenu : MonoBehaviour
             if (gamePaused)
             {
                 Resume();
-                LookCheck();
             }
             else
             {
                 Pause();
-                LookCheck();
             }
         }
     }
@@ -42,6 +40,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         gamePaused = false;
         Cursor.lockState = CursorLockMode.Locked;
+        LookCheck();
     }
 
     public void Pause()
@@ -51,6 +50,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         gamePaused = true;
         Cursor.lockState = CursorLockMode.None;
+        LookCheck();
     }
 
     public void GiveUp()
