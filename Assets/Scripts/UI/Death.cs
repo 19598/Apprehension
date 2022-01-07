@@ -23,6 +23,8 @@ public class Death : MonoBehaviour
         if (value < 1)
         {
             deathScreen.SetActive(true);
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }
