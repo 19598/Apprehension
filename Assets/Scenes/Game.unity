@@ -12659,11 +12659,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6315206640046909687, guid: c03b63d2db954a74883edb54f72ce8cf, type: 3}
   m_PrefabInstance: {fileID: 1815782876}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &393698032 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2216313694785600925, guid: e88bfa99d7ec1df4e97de4548090517b, type: 3}
-  m_PrefabInstance: {fileID: 1692699753}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &396012271 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 261881853625085673, guid: a0708bab0e06c414381a6861ecf05a38, type: 3}
@@ -61287,8 +61282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2d1ef9ad7d12b4982a4fe7acc35e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Leech: {fileID: 393698032}
-  BigBoy: {fileID: 0}
+  Leech: {fileID: 2216313694785600925, guid: e88bfa99d7ec1df4e97de4548090517b, type: 3}
   player: {fileID: 2056153019}
   db: {fileID: 1805693037}
   keys:

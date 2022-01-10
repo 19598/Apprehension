@@ -12,7 +12,6 @@ public class LoadManager : MonoBehaviour
     void Start()
     {
         player = GameObject.FindObjectOfType<PlayerController>();
-        EmailCrashReport.SendEmailReport("brendeg39@gmail.com");
     }
 
     /// <summary>
@@ -49,28 +48,31 @@ public class LoadManager : MonoBehaviour
     /// <param name="saveName">Name of the save</param>
     public void Load(string saveName)
     {
-        player.loadGame(saveName);
-        loadItems(saveName);
-        //destroy enemies and place new ones
-        foreach (EnemyClass enemy in GameObject.FindObjectsOfType<EnemyClass>())
+        if (SaveGame.getSaves().Count > 0)
         {
-            Destroy(enemy.gameObject);
-        }
-        List<float[]> enemyArray = SaveGame.LoadEnemies(saveName);
-        /* Enemy Data takes the following form
-         * position x|y|z| rotation x|y|z|w| health| type|
-         *          0|1|2|          3|4|5|6|      7|    8|
-         */
-        //for every saved leech, create a leech and assign it data
-        foreach (float[] enemyData in enemyArray)
-        {
-            //Leech
-            if (enemyData[8] == 0)
+            player.loadGame(saveName);
+            loadItems(saveName);
+            //destroy enemies and place new ones
+            foreach (EnemyClass enemy in GameObject.FindObjectsOfType<EnemyClass>())
             {
-                GameObject newLeech = Instantiate(Leech, new Vector3(enemyData[0], enemyData[1], enemyData[2]), new Quaternion(enemyData[3], enemyData[4], enemyData[5], enemyData[6]));
-                LeechAI newLeechAI = newLeech.GetComponent<LeechAI>();
-                //newLeechAI.playerHealth = FindObjectOfType<Health>();
-                newLeechAI.setHealth(enemyData[7]);
+                Destroy(enemy.gameObject);
+            }
+            List<float[]> enemyArray = SaveGame.LoadEnemies(saveName);
+            /* Enemy Data takes the following form
+             * position x|y|z| rotation x|y|z|w| health| type|
+             *          0|1|2|          3|4|5|6|      7|    8|
+             */
+            //for every saved leech, create a leech and assign it data
+            foreach (float[] enemyData in enemyArray)
+            {
+                //Leech
+                if (enemyData[8] == 0)
+                {
+                    GameObject newLeech = Instantiate(Leech, new Vector3(enemyData[0], enemyData[1], enemyData[2]), new Quaternion(enemyData[3], enemyData[4], enemyData[5], enemyData[6]));
+                    LeechAI newLeechAI = newLeech.GetComponent<LeechAI>();
+                    newLeechAI.playerHealth = FindObjectOfType<Health>();
+                    newLeechAI.setHealth(enemyData[7]);
+                }
             }
         }
     }
@@ -81,7 +83,7 @@ public class LoadManager : MonoBehaviour
     /// <param name="saveName">Name of the save</param>
     public void loadItems(string saveName)
     {
-        //player.keys.Clear();
+        player.keys.Clear();
         foreach (string[] name in db.getInventory(saveName))
         {
             foreach (GameObject key in keys)
