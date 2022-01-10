@@ -8,8 +8,7 @@ public class PauseMenu : MonoBehaviour
     public LoadManager loadmanage;
     public static bool gamePaused = false;
     public GameObject pauseMenuUI;
-    public GameObject settingsUI;
-    public GameObject FirPerCon;
+    public GameObject Health;
 
     void Start()
     {
@@ -40,7 +39,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         gamePaused = false;
         Cursor.lockState = CursorLockMode.Locked;
-        LookCheck();
+        LookRaise();
     }
 
     public void Pause()
@@ -50,7 +49,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         gamePaused = true;
         Cursor.lockState = CursorLockMode.None;
-        LookCheck();
+        LookLower();
     }
 
     public void GiveUp()
@@ -61,7 +60,7 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void LookCheck()
+    public void LookRaise()
     {
         float sensValue = SharedValues.mockSens;
 
@@ -70,7 +69,14 @@ public class PauseMenu : MonoBehaviour
             SharedValues.sharedSens += sensValue;
         } 
 
-        else
+        
+    }
+
+    public void LookLower()
+    {
+        float sensValue = SharedValues.mockSens;
+
+        if (SharedValues.sharedSens != 0)
         {
             SharedValues.sharedSens -= sensValue;
         }
@@ -90,6 +96,16 @@ public class PauseMenu : MonoBehaviour
         {
             loadmanage.Load("recent");
             Debug.Log("2");
+        }
+    }
+
+    public void HealthCheck(float flo)
+    {
+        float value = flo;
+
+        if (value < 1)
+        {
+            LookLower();
         }
     }
 }

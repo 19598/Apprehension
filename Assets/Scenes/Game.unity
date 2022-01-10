@@ -1344,18 +1344,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1700976652}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Load
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1700976652}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
@@ -1365,18 +1353,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 164265832}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &47395285
 MonoBehaviour:
@@ -4618,6 +4594,7 @@ GameObject:
   - component: {fileID: 164265833}
   - component: {fileID: 164265835}
   - component: {fileID: 164265834}
+  - component: {fileID: 164265836}
   m_Layer: 5
   m_Name: WinScreen
   m_TagString: Untagged
@@ -4685,6 +4662,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164265832}
   m_CullTransparentMesh: 1
+--- !u!223 &164265836
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164265832}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1001 &165152714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5331,8 +5329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadmanage: {fileID: 1805693035}
   pauseMenuUI: {fileID: 176007860}
-  settingsUI: {fileID: 0}
-  FirPerCon: {fileID: 0}
+  Health: {fileID: 766224699}
 --- !u!1001 &176981611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14240,7 +14237,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 356.556, y: 73.4834}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &435728280
 MonoBehaviour:
@@ -14262,7 +14259,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: You have Found Your Escape Route
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -25838,10 +25835,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 176007864}
+      - m_Target: {fileID: 1700976652}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: LookCheck
-        m_Mode: 1
+        m_MethodName: HealthCheck
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -47630,7 +47627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1399604228
 RectTransform:
   m_ObjectHideFlags: 0
@@ -57875,8 +57872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadmanage: {fileID: 1805693035}
   pauseMenuUI: {fileID: 176007860}
-  settingsUI: {fileID: 1811279356}
-  FirPerCon: {fileID: 2056153015}
+  Health: {fileID: 0}
 --- !u!1001 &1702368467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58291,7 +58287,31 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1337027648}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: changeHealthByAmount
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1700976652}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: LookRaise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1714462021
 MonoBehaviour:
@@ -62537,7 +62557,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Try Again
+  m_Text: Explore
 --- !u!222 &1830838072
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -70774,7 +70794,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Give Up
+  m_Text: Escape
 --- !u!222 &2138805739
 CanvasRenderer:
   m_ObjectHideFlags: 0
