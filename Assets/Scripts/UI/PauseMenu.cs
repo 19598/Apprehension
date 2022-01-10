@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     public static bool gamePaused = false;
     public GameObject pauseMenuUI;
     public GameObject Health;
+    public GameObject WinScreen;
 
     void Start()
     {
@@ -107,5 +108,10 @@ public class PauseMenu : MonoBehaviour
         {
             LookLower();
         }
+    }
+
+    public void PullWinScreen()
+    {
+        
     }
 }
