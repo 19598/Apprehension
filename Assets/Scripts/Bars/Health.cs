@@ -14,26 +14,31 @@ public class Health : MonoBehaviour
     {
         currentHealth = maxHealth;
     }
+
+    /// <summary>
+    /// Returns the player's health
+    /// </summary>
+    /// <returns>Player's current health</returns>
     public float getHealth()
     {
         return currentHealth;
     }
-    private void Update()
-    {
-        if (currentHealth <= 0)
-        {
-            Debug.Log("YOU DIED!");
-        }
-    }
 
+    /// <summary>
+    /// Changes the player health by the specified amount
+    /// </summary>
+    /// <param name="amount">The amount to change the player health by</param>
     public void changeHealthByAmount(float amount)
     {
         currentHealth += amount;
         barRight.value = (currentHealth / maxHealth) * 100;
         barLeft.value = (currentHealth / maxHealth) * 100;
-        //picture.color = new Color(picture.color.r, picture.color.g, picture.color.b, (maxHealth-currentHealth) / (maxHealth));
     }
 
+    /// <summary>
+    /// Sets the player health
+    /// </summary>
+    /// <param name="newHealth">The desired health</param>
     public void setHealth(float newHealth)
     {
         currentHealth = newHealth;

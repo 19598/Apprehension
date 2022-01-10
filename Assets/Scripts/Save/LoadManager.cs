@@ -5,7 +5,6 @@ using UnityEngine;
 public class LoadManager : MonoBehaviour
 {
     public GameObject Leech;
-    public GameObject BigBoy;
     public PlayerController player;
     public Database db;
     public List<GameObject> keys;
@@ -13,8 +12,13 @@ public class LoadManager : MonoBehaviour
     void Start()
     {
         player = GameObject.FindObjectOfType<PlayerController>();
+        EmailCrashReport.SendEmailReport("brendeg39@gmail.com");
     }
 
+    /// <summary>
+    /// Saves the game
+    /// </summary>
+    /// <param name="saveName">Name of the save</param>
     public void Save(string saveName)
     {
         SaveGame.SaveEnemies(GameObject.FindObjectsOfType<EnemyClass>(), saveName);
@@ -26,14 +30,23 @@ public class LoadManager : MonoBehaviour
         saveItems("recent");
     }
 
+    /// <summary>
+    /// Saves the items in the player's inventory
+    /// </summary>
+    /// <param name="saveName">Name of the save</param>
     public void saveItems(string saveName)
     {
+        db.resetDB(saveName);
         foreach (GameObject key in player.keys)
         {
             db.addItem(saveName, key.GetComponent<Key>().name, 1);
         }
     }
 
+    /// <summary>
+    /// Loads desired save
+    /// </summary>
+    /// <param name="saveName">Name of the save</param>
     public void Load(string saveName)
     {
         player.loadGame(saveName);
@@ -62,7 +75,10 @@ public class LoadManager : MonoBehaviour
         }
     }
 
-    //loops through all the keys and checks if any were saved. If they were, add them to the player's inventory
+    /// <summary>
+    /// Loops through all the keys and checks if any were saved. If they were, add them to the player's inventory
+    /// </summary>
+    /// <param name="saveName">Name of the save</param>
     public void loadItems(string saveName)
     {
         //player.keys.Clear();

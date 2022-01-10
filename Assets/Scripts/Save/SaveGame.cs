@@ -8,6 +8,12 @@ using Mono.Data.Sqlite;
 
 public static class SaveGame
 {
+
+    /// <summary>
+    /// Inserst the player's save data into the database
+    /// </summary>
+    /// <param name="player">Formatted player data</param>
+    /// <param name="saveName">Name of the save</param>
     public static void SavePlayer (PlayerData player, string saveName)
     {
         //creates a connection to the database and sets up database interaction
@@ -30,6 +36,11 @@ public static class SaveGame
         dbcon.Close();
     }
 
+    /// <summary>
+    /// Loads the player from the database
+    /// </summary>
+    /// <param name="saveName">Name of the save</param>
+    /// <returns>Raw player data</returns>
     public static PlayerData LoadPlayer (string saveName)
     {
         string connection = "URI=file:" + Application.persistentDataPath + "/" + "GameDB";
@@ -59,6 +70,11 @@ public static class SaveGame
         }
     }
 
+    /// <summary>
+    /// Saves enemy data
+    /// </summary>
+    /// <param name="enemies">A list of all the enemies needed to be saved</param>
+    /// <param name="saveName">Name of the save</param>
     public static void SaveEnemies (EnemyClass[] enemies, string saveName)
     {
         string connection = "URI=file:" + Application.persistentDataPath + "/" + "GameDB";
@@ -100,6 +116,11 @@ public static class SaveGame
         dbcon.Close();
     }
 
+    /// <summary>
+    /// Loads all the enemies
+    /// </summary>
+    /// <param name="saveName">Name of the save</param>
+    /// <returns>A list of raw enemy data</returns>
     public static List<float[]> LoadEnemies(string saveName)
     {
         string connection = "URI=file:" + Application.persistentDataPath + "/" + "GameDB";
@@ -123,8 +144,11 @@ public static class SaveGame
         dbcon.Close();
         return enemyData;
     }
-
-    //gets the names of all saves and returns them as a list
+    
+    /// <summary>
+    /// Lists all the saves available
+    /// </summary>
+    /// <returns>A list of save names</returns>
     public static List<string> getSaves()
     {
         List<string> fileNames = new List<string>();
@@ -154,7 +178,10 @@ public static class SaveGame
         }
     }
 
-    //Deletes the specified save
+    /// <summary>
+    /// Deletes specified save
+    /// </summary>
+    /// <param name="saveName">Name of the save</param>
     public static void deleteSave(string saveName)
     {
         string connection = "URI=file:" + Application.persistentDataPath + "/" + "GameDB";

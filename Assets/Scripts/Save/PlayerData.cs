@@ -10,6 +10,14 @@ public class PlayerData
     public float health;
     public float stamina;
     public float mana;
+
+    /// <summary>
+    /// Constructs a data object for saving
+    /// </summary>
+    /// <param name="player">Player object to be saved</param>
+    /// <param name="health">Health object to be saved</param>
+    /// <param name="stamina">Stamina object to be saved</param>
+    /// <param name="mana">Mana object to be saved</param>
     public PlayerData(PlayerController player, Health health, Stamina stamina, Mana mana)
     {
         position[0] = player.transform.position.x;
@@ -26,6 +34,15 @@ public class PlayerData
         this.mana = mana.getMana();
 
     }
+
+    /// <summary>
+    /// Constructs a data object for saving
+    /// </summary>
+    /// <param name="position">Position to be saved</param>
+    /// <param name="rotation">Rotation to be saved</param>
+    /// <param name="health">Health value to be saved</param>
+    /// <param name="stamina">Stamina value to be saved</param>
+    /// <param name="mana">Mana value to be saved</param>
     public PlayerData(float[] position, float[] rotation, float health, float stamina, float mana)
     {
         this.position = position;

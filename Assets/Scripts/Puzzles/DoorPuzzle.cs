@@ -9,8 +9,9 @@ public class DoorPuzzle : MonoBehaviour
     public float openAngle;
     private bool isOpen = false;
 
-
-    //opens door
+    /// <summary>
+    /// Opens the door
+    /// </summary>
     public void Open()
     {
         //if the player has the key and the door isn't open
@@ -21,9 +22,14 @@ public class DoorPuzzle : MonoBehaviour
         }
     }
 
-    //iterates through each key the player has and sees if it has the correct one
+    
+    /// <summary>
+    /// Checks if the player has the key corresponding to this door
+    /// </summary>
+    /// <returns>Whether or not he player has the key (boolean)</returns>
     public bool doesPlayerHaveKey()
     {
+        //loops through all the keys the player has and checks if they have the correct one
         foreach (GameObject keys in player.keys)
         {
             if (keys.GetComponent<Key>().name == key.name)
