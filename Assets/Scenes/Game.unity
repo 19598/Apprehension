@@ -1272,7 +1272,7 @@ GameObject:
   - component: {fileID: 47395285}
   - component: {fileID: 47395284}
   m_Layer: 5
-  m_Name: Try Again
+  m_Name: Explore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4601,7 +4601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &164265833
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4679,7 +4679,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -14214,7 +14214,7 @@ GameObject:
   - component: {fileID: 435728281}
   - component: {fileID: 435728280}
   m_Layer: 5
-  m_Name: Dead
+  m_Name: Win
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59789,7 +59789,7 @@ GameObject:
   - component: {fileID: 1763100163}
   - component: {fileID: 1763100162}
   m_Layer: 5
-  m_Name: Give Up
+  m_Name: Escape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62499,7 +62499,7 @@ GameObject:
   - component: {fileID: 1830838072}
   - component: {fileID: 1830838071}
   m_Layer: 5
-  m_Name: TA
+  m_Name: Exp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70736,7 +70736,7 @@ GameObject:
   - component: {fileID: 2138805739}
   - component: {fileID: 2138805738}
   m_Layer: 5
-  m_Name: GU
+  m_Name: Esc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
