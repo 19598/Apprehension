@@ -11,6 +11,9 @@ public class SharedValues
     public static Settings settings;
     public static float mockSens = sharedSens;
 
+    /// <summary>
+    /// Save all the player settigns
+    /// </summary>
     public static void saveValues()
     {
         PlayerPrefs.SetFloat("sharedSens", sharedSens);
@@ -20,6 +23,9 @@ public class SharedValues
         PlayerPrefs.Save();
     }
 
+    /// <summary>
+    /// Checks if the player has prefrences saved, and if they do they load them
+    /// </summary>
     public static void loadValues()
     {
         if (PlayerPrefs.HasKey("sharedSens"))
