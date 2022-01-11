@@ -5525,10 +5525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2b9deeceed673428d630684025f49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newText: {fileID: 177401663}
   slider: {fileID: 1037103910}
-  toggleRun: {fileID: 1506398906}
-  toggleCrouch: {fileID: 1046333167}
-  toggleBob: {fileID: 1055604063}
 --- !u!114 &177401661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18876,7 +18874,7 @@ Transform:
   - {fileID: 395512591}
   - {fileID: 1164647000}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &546096808
 MonoBehaviour:
