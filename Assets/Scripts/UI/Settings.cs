@@ -8,7 +8,7 @@ public class Settings : MonoBehaviour
 {
     private void Start()
     {
-        SharedValues.loadValues();
+        //SharedValues.loadValues();
     }
     public void setRun(bool value)
     {
