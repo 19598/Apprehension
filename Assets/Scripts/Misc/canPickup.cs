@@ -25,22 +25,4 @@ public class canPickup : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
-    
-    /// <summary>
-    /// Draws a wireframe for debugging purposes
-    /// </summary>
-    private void OnDrawGizmos()
-    {
-        if (hasPickedUp)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, dimensions);
-            Gizmos.color = Color.blue;
-        }
-        else
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, dimensions);
-        }
-    }
 }

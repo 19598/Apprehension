@@ -18,18 +18,4 @@ public class SaveOnCollision : MonoBehaviour
             hasSaved = true;
         }
     }
-    private void OnDrawGizmos()
-    {
-        if (hasSaved)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, dimensions);
-            Gizmos.color = Color.blue;
-        }
-        else
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, dimensions);
-        }
-    }
 }
