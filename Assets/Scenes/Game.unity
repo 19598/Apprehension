@@ -13617,7 +13617,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   display: {fileID: 1150968495}
   player: {fileID: 2056153015}
-  dimensions: 1
 --- !u!114 &416519236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57157,7 +57156,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   display: {fileID: 1150968495}
   player: {fileID: 2056153015}
-  dimensions: 1
 --- !u!4 &1675202004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8599792117849368541, guid: 112473a489e4f4e47b0127b8a56f8582, type: 3}
@@ -65401,7 +65399,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   display: {fileID: 1150968495}
   player: {fileID: 2056153015}
-  dimensions: 1
 --- !u!114 &1941572140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67338,7 +67335,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   display: {fileID: 1150968495}
   player: {fileID: 2056153015}
-  dimensions: 1
 --- !u!1001 &2013899092
 PrefabInstance:
   m_ObjectHideFlags: 0

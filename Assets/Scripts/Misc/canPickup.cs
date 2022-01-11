@@ -7,7 +7,7 @@ public class canPickup : MonoBehaviour
 {
     public Display display;
     public GameObject player;
-    public float dimensions = 1f;
+    private float dimensions = 1f;
     bool hasPickedUp = false;
 
     /// <summary>
@@ -15,7 +15,7 @@ public class canPickup : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        float distance = Vector3.Distance(player.transform.position, transform.position);
+        float distance = Vector3.Distance(player.transform.position + Vector3.down, transform.position);
         if (distance <= dimensions && !hasPickedUp)
         {
             display.ApplyTextToScreen("Picked Up " + this.gameObject.name, 3f);
