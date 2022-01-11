@@ -9,9 +9,9 @@ public class LeechAI : EnemyClass
     public Health playerHealth;
     [SerializeField] public string enemyName;
     public float health;
-    public float speed = 1;
+    private float speed = 8;
     public float viewDistance;
-    public float damage = 10;
+    private float damage = -15;
     Transform target;
     Vector3 orgPos;
     [SerializeField]NavMeshAgent agent;
@@ -24,7 +24,7 @@ public class LeechAI : EnemyClass
     private Vector3 position;
     private float type = 0;
     public AnimationClip clip;
-    public float attackCooldownTime;
+    private float attackCooldownTime = 0.2f;
     public GameObject player;
     public LayerMask maskOfLayer;
     // Start is called before the first frame update
