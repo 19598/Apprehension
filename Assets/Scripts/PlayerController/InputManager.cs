@@ -10,14 +10,12 @@ public class InputManager : MonoBehaviour
     [Header("Assignments")]
     [SerializeField] PlayerController PC;
     [SerializeField] MouseLook mouseLook;
-    [SerializeField] PlayerPeeking playerpeeking;
 
     PlayerControl playercontrols;
     PlayerControl.PlayerActions groundMovement;
 
     Vector2 mouseInput;
     Vector2 horizontalInput;
-    float peekInput;
     float sprintInput;
     float crouchInput;
     //Once the program awakens it calls the methods from the new unity input manager and sets them to the appropriate values/variables.
@@ -47,9 +45,6 @@ public class InputManager : MonoBehaviour
         groundMovement.MouseX.performed += ctx => mouseInput.x = ctx.ReadValue<float>();
         groundMovement.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
 
-        //Peeking Inputs
-        groundMovement.Peek.performed += ctx => peekInput = ctx.ReadValue<float>();
-        groundMovement.Peek.canceled += ctx => peekInput = 0;
         //playercontrols.[action].performed += _ => do something
     }
     private void Update()
@@ -58,7 +53,6 @@ public class InputManager : MonoBehaviour
         PC.receiveInput(horizontalInput);
         PC.receiveSprintInput(sprintInput);
         PC.receiveInput(crouchInput);
-        playerpeeking.receivePeekInput(peekInput);
     }
     private void OnEnable()
     {
