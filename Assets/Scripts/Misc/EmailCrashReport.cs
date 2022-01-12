@@ -3,9 +3,32 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Mail;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EmailCrashReport : MonoBehaviour
 {
+    public Text newText;
+
+    public void updateText(string input)
+    {
+        newText.text = input;
+    }
+
+    public void checkText()
+    {
+        Debug.Log(newText.text);
+    }
+
+    public void clearText()
+    {
+        newText.text = "";
+    }
+
+    public void sendCrash()
+    {
+        SendEmailReport(newText.text);
+    }
+
     /// <summary>
     /// Emails the user a crash report
     /// </summary>
