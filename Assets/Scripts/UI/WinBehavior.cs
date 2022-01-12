@@ -18,17 +18,13 @@ public class WinBehavior : MonoBehaviour
             winScn.SetActive(true);
             Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;
-<<<<<<< Updated upstream
             LowerSens();
-=======
             float sensValue = SharedValues.mockSens;
 
             if (SharedValues.sharedSens != 0)
             {
                 SharedValues.sharedSens -= sensValue;
             }
-
->>>>>>> Stashed changes
             hasWon = true;
         }
     }
