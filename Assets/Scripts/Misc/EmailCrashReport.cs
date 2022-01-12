@@ -9,16 +9,19 @@ public class EmailCrashReport : MonoBehaviour
 {
     public Text newText;
 
+
+    /// <summary>
+    /// Updates the newText value to be used in the crash report
+    /// </summary>
+    /// <param name="input"></param>
     public void updateText(string input)
     {
         newText.text = input;
     }
 
-    public void checkText()
-    {
-        Debug.Log(newText.text);
-    }
-
+    /// <summary>
+    /// Clears the newText text field (Used when exiting settings screen)
+    /// </summary>
     public void clearText()
     {
         newText.text = "";
