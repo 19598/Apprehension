@@ -8,7 +8,7 @@ public class Settings : MonoBehaviour
 {
     private void Start()
     {
-        SharedValues.loadValues();
+        
     }
     public void setRun(bool value)
     {
@@ -29,6 +29,7 @@ public class Settings : MonoBehaviour
     public void setShare(float value)
     {
         SharedValues.sharedSens = value * .001f;
+        SharedValues.mockSens = value * .001f;
         SharedValues.saveValues();
     }
 

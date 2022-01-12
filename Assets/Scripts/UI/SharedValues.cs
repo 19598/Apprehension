@@ -28,13 +28,6 @@ public class SharedValues
     /// </summary>
     public static void loadValues()
     {
-        if (PlayerPrefs.HasKey("sharedSens"))
-        {
-            //settings = FindObjectOfType<Settings>();
-            settings.setShare(PlayerPrefs.GetFloat("sharedSens"));
-            settings.setBob(PlayerPrefs.GetInt("headBob") == 1 ? true : false);
-            settings.setRun(PlayerPrefs.GetInt("sharedTogRun") == 1 ? true : false);
-            settings.setCrouch(PlayerPrefs.GetInt("sharedTogCrouch") == 1 ? true : false);
-        }
+        
     }
 }
