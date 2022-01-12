@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class SharedValues
 {
-    public static float sharedSens = .01f;
-    public static bool headBob = true;
-    public static bool sharedTogRun = true;
-    public static bool sharedTogCrouch = false;
-    public static Settings settings;
-    public static float mockSens = sharedSens;
+    /// <summary>
+    /// Holds values that need to be used across multiple scenes. Values are passed into 
+    /// these variables from both the Game and Menu scenes
+    /// 
+    /// All variables here are defaulted
+    /// </summary>
+    public static float sharedSens = .01f;//Sensitivity value
+    public static bool headBob = true;//Headbob Toggle
+    public static bool sharedTogRun = true;//Run Toggle
+    public static bool sharedTogCrouch = false;//Crouch Toggle
+    public static float mockSens = sharedSens;//float holding sens value, used for Sens lower and raise methods
 
-    public static bool loadFlag = false;
+    public static bool loadFlag = false;//Flag for loading saves at beginning of game scene
 
     /// <summary>
     /// Save all the player settigns
@@ -23,13 +28,5 @@ public class SharedValues
         PlayerPrefs.SetInt("sharedTogRun", sharedTogRun ? 1 : 0);
         PlayerPrefs.SetInt("sharedTogCrouch", sharedTogCrouch ? 1 : 0);
         PlayerPrefs.Save();
-    }
-
-    /// <summary>
-    /// Checks if the player has prefrences saved, and if they do they load them
-    /// </summary>
-    public static void loadValues()
-    {
-        
     }
 }

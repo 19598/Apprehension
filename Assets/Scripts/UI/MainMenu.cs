@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
+    /// <summary>
+    /// Loads the next scene and changes the SharedValues script's loadFlag variable to true
+    /// </summary>
     public void ContinueGame()
     {
         if (SaveGame.getSaves().Count > 0)
@@ -15,6 +18,11 @@ public class MainMenu : MonoBehaviour
             SharedValues.loadFlag = true;
         }
     }
+    
+    /// <summary>
+    /// Loads the next scene and changes the SharedVales script's loadFlag variable to false
+    /// Also deletes current save files.
+    /// </summary>
     public void NewGame()
     {
         FindObjectOfType<AudioManager>().Play("Click");
@@ -23,6 +31,9 @@ public class MainMenu : MonoBehaviour
         SaveGame.deleteSave();
     }
 
+    /// <summary>
+    /// Closes the game
+    /// </summary>
     public void QuitGame()
     {
         Application.Quit();

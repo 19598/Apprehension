@@ -4,23 +4,16 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
+    //Holding the Death Screen game object
     public GameObject deathScreen;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// Checks the health of the player and activates the death screen when health is at or below 0
+    /// </summary>
+    /// <param name="value"></param>
     public void checkDeath(float value)
     {
-        if (value < 1)
+        if (value <= 0)
         {
             deathScreen.SetActive(true);
             Time.timeScale = 0f;

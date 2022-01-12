@@ -9,6 +9,10 @@ public class LoadManager : MonoBehaviour
     public Database db;
     public List<GameObject> keys;
 
+    /// <summary>
+    /// initialized player
+    /// Loads most recent save if loadFlag is true
+    /// </summary>
     void Start()
     {
         player = GameObject.FindObjectOfType<PlayerController>();
