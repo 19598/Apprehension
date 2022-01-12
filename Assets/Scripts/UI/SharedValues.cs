@@ -11,6 +11,8 @@ public class SharedValues
     public static Settings settings;
     public static float mockSens = sharedSens;
 
+    public static bool loadFlag = false;
+
     /// <summary>
     /// Save all the player settigns
     /// </summary>

@@ -12,6 +12,11 @@ public class LoadManager : MonoBehaviour
     void Start()
     {
         player = GameObject.FindObjectOfType<PlayerController>();
+
+        if (SharedValues.loadFlag)
+        {
+            Load("recent");
+        }
     }
 
     /// <summary>

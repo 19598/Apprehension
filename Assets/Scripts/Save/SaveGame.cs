@@ -182,15 +182,17 @@ public static class SaveGame
     /// Deletes specified save
     /// </summary>
     /// <param name="saveName">Name of the save</param>
-    public static void deleteSave(string saveName)
+    public static void deleteSave()//string saveName)
     {
         string connection = "URI=file:" + Application.persistentDataPath + "/" + "GameDB";
         IDbConnection dbcon = new SqliteConnection(connection);
         dbcon.Open();
         IDbCommand cmnd = dbcon.CreateCommand();
-        cmnd.CommandText = "DELETE FROM saveenemy WHERE savename = \"" + saveName + "\"";
+        cmnd.CommandText = "DELETE FROM saveenemy";// WHERE savename = \"" + saveName + "\"";
         cmnd.ExecuteNonQuery();
-        cmnd.CommandText = "DELETE FROM saveplayer WHERE savename = \"" + saveName + "\"";
+        cmnd.CommandText = "DELETE FROM saveplayer";// WHERE savename = \"" + saveName + "\"";
+        cmnd.ExecuteNonQuery();
+        cmnd.CommandText = "DELETE FROM inventory";// WHERE savename = \"" + saveName + "\"";
         cmnd.ExecuteNonQuery();
         dbcon.Close();
     }

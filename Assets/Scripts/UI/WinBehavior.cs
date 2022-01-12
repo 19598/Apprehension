@@ -16,8 +16,22 @@ public class WinBehavior : MonoBehaviour
         {
             Debug.Log("Winning...");
             winScn.SetActive(true);
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            LowerSens();
             hasWon = true;
         }
     }
     
+    private void LowerSens()
+    {
+        float sensValue = SharedValues.mockSens;
+
+        if (SharedValues.sharedSens != 0)
+        {
+            SharedValues.sharedSens -= sensValue;
+        }
+
+        hasWon = true;
+    }
 }
