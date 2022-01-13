@@ -18,7 +18,6 @@ public class ChangeTextColor : MonoBehaviour
     {
         bool setTextVal = false;
 
-        Debug.Log(SaveGame.getSaves().Count);
         while (SaveGame.getSaves().Count < 1 && !setTextVal)
         {
             text.color = Color.grey;
