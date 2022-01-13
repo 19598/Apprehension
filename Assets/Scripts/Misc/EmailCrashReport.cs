@@ -56,7 +56,7 @@ public class EmailCrashReport : MonoBehaviour
             };
 
             //Sends the email
-            smtpClient.Send("goodgaminggroupteam@gmail.com", "brendeg39@gmail.com", "Crash Report", reports);
+            smtpClient.Send("goodgaminggroupteam@gmail.com", address, "Crash Report", reports);
         }
         catch { }
     }
