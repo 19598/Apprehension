@@ -8,6 +8,10 @@ public class SaveOnCollision : MonoBehaviour
     public LoadManager ldmanager;
     public float dimensions = 1f;
     bool hasSaved = false;
+
+    /// <summary>
+    /// If the player is close enough to the collider, it saves the game
+    /// </summary>
     private void Update()
     {
         float distance = Vector3.Distance(player.transform.position, transform.position);

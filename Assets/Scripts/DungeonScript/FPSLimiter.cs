@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class FPSLimiter : MonoBehaviour
 {
-    // Start is called before the first frame update
+    /// <summary>
+    /// Limits the framerate of the game and turns off vsync
+    /// </summary>
     void Start()
     {
         QualitySettings.vSyncCount = 0;

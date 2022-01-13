@@ -22,19 +22,6 @@ public class HeadBobber : MonoBehaviour
         {
             random();
         }
-        //if (targetBobPosition.y <= Mathf.Sin(z * 4))
-        //{
-        //    int x = 0;
-        //    do
-        //    {
-        //        random();
-        //        Debug.Log("walp");
-        //        x++;
-        //    } while (x < 1);
-        //    x = 0;
-
-        //    Debug.Log("walk");
-        //}
     }
     private void random()
     {

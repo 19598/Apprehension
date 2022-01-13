@@ -51,6 +51,8 @@ public class PlayerHeadBob : MonoBehaviour
         }
         Count();
     }
+
+    //for each of the following functions, the headbob is adjust for different player actions
     private void WalkBob()
     {
         multiplierVelocity = Mathf.Lerp(multiplier, 5, Time.deltaTime);

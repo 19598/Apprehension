@@ -27,6 +27,9 @@ public class EmailCrashReport : MonoBehaviour
         newText.text = "";
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public void sendCrash()
     {
         SendEmailReport(newText.text);
@@ -42,9 +45,16 @@ public class EmailCrashReport : MonoBehaviour
         {
             //Creates the crash report string from available reports
             string reports = "Here is the crash report you requested:\n";
-            foreach (CrashReport report in CrashReport.reports)
+            if (CrashReport.reports.Length > 0)
             {
-                reports = reports + "\n" + report.text + "\n";
+                foreach (CrashReport report in CrashReport.reports)
+                {
+                    reports = reports + "\n" + report.text + "\n";
+                }
+            }
+            else
+            {
+                reports = reports + "\nThere were no crashes logged.";
             }
 
             //Sets up the email
