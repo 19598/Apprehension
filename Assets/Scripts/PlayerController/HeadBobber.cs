@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class HeadBobber : MonoBehaviour
 {
+    //audio sources for left and right
     public AudioSource leftFoot;
     public AudioSource rightFoot;
+    //main camera assignment
     public Camera mainCamera;
+    //the original point of the camera
     public Vector3 mainCameraOrigin;
+    //the position that the camera will want to go to
     public Vector3 targetBobPosition;
 
     private void Start()
     {
+        //assigns the original point of the camera
         mainCameraOrigin = mainCamera.transform.localPosition;
     }
+    //uses math.sin to demostrate head bobbing in real life when you take a breath in and out and scales it depending on if the player is running, walking, stumbling, idling etc.
     public void HeadBob(float z, float yIntensity)
     {
         targetBobPosition = mainCameraOrigin + new Vector3(0, Mathf.Sin(z * 4) * yIntensity, 0);
@@ -22,20 +28,9 @@ public class HeadBobber : MonoBehaviour
         {
             random();
         }
-        //if (targetBobPosition.y <= Mathf.Sin(z * 4))
-        //{
-        //    int x = 0;
-        //    do
-        //    {
-        //        random();
-        //        Debug.Log("walp");
-        //        x++;
-        //    } while (x < 1);
-        //    x = 0;
 
-        //    Debug.Log("walk");
-        //}
     }
+    //randomly picks a number between 1 and 2 and whichever number is selected a audio sound will play 
     private void random()
     {
         int num = Random.Range(1, 2);

@@ -29,7 +29,7 @@ public class LeechAI : EnemyClass
     public LayerMask maskOfLayer;
     // Start is called before the first frame update
     void Start()
-    {
+    { //assigns values that arent assigned immediately.
         attackCooldownTime = clip.length;
         orgPos = transform.position;
         wanderTimer = 15f;
@@ -43,22 +43,23 @@ public class LeechAI : EnemyClass
     bool cantSeePlayer;
     // Update is called once per frame
     void Update()
-    {
+    { //draws a linecast from this position to the target (player) and accepts layer masks so it can detect walls.
         cantSeePlayer = Physics.Linecast(transform.position, target.position, maskOfLayer);
 
+        //in case a value that isnt negative is put into the script, it turns it negative for it to work.
         if (damage > 0)
         {
             damage = -damage;
         }
         if (agent.remainingDistance > agent.stoppingDistance)
-        {
+        {//animator booleans setting animations to run
             animator.SetBool("isMoving", true);
         }
         else
         {
             animator.SetBool("isMoving", false);
         }
-
+        //grabs the distance between this and the target position and performs tests once found to check if this object can follow the player
         float distance = Vector3.Distance(target.position, transform.position);
         if (distance <= viewDistance && !cantSeePlayer)
         {
@@ -67,7 +68,7 @@ public class LeechAI : EnemyClass
             animator.SetBool("canSeePlayer", true);
             agent.SetDestination(target.position);
             FaceTarget();
-
+            //if object is close enough it may attack as long as the health is greater than 0
             if (distance <= agent.stoppingDistance && playerHealth.getHealth() > 0)
             {
                 animator.SetBool("canAttack", true);
@@ -88,6 +89,7 @@ public class LeechAI : EnemyClass
             Wander();
         } 
     }
+    //attack method that grabs the player health and subtracts health from it.
     public void Attack()
     {
         if (attackCooldownTime > 0)
@@ -100,6 +102,7 @@ public class LeechAI : EnemyClass
             attackCooldownTime = clip.length;
         }
     }
+    //uses a navmeshsphere and picks a random point inside of it for the leech to patrol too
     public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
     {
         Vector3 randDirection = Random.insideUnitSphere * dist;
@@ -108,12 +111,14 @@ public class LeechAI : EnemyClass
         NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
         return navHit.position;
     }
+    //face the target at all times to make it more realistic
     void FaceTarget()
     {
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
+    //how often can the object wander around the map
     private void Wander()
     {
         timer += Time.deltaTime;
@@ -124,6 +129,7 @@ public class LeechAI : EnemyClass
             timer = 0;
         }
     }
+    //draws gizmos to help devs see and test what needs to be done
     private void OnDrawGizmosSelected()
     {
         if (cantSeePlayer)
@@ -149,18 +155,23 @@ public class LeechAI : EnemyClass
             Gizmos.DrawWireSphere(transform.position, viewDistance);
         }
     }
+    //grabs the health of the leech
     public override float getHealth()
     {
         return health;
     }
+
+    //sets the health of the leech
     public override void setHealth(float newHealth)
     {
         health = newHealth;
     }
+    //changes the health by an amount
     public override void changeHealthByAmount(float amount)
     {
         health += amount;
     }
+    //returns the object type
     public override float returnType()
     {
         return type;
