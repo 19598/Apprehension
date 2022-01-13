@@ -28,10 +28,6 @@ public class HeadBobber : MonoBehaviour
         {
             random();
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> 65302a4cdcb5f71d374e3b1c1dcb783c44b4cf3b
     }
     //randomly picks a number between 1 and 2 and whichever number is selected a audio sound will play 
     private void random()
