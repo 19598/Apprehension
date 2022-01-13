@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Sets up a class structure for enemies so they can be saved
+/// </summary>
 public abstract class EnemyClass : MonoBehaviour
 {
-    //float maxHealth;
-    //float health;
-    //float type;
 
     public abstract float getHealth();
 

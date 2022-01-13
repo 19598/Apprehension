@@ -11,12 +11,10 @@ public class PauseMenu : MonoBehaviour
     public GameObject Health;
     public GameObject WinScreen;
 
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Pauses/Unpauses when esape is pressed
+    /// </summary>
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -33,6 +31,9 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// When called, drops pause menu, resumes time, locks cursor, and increases sensitivity to original amount.
+    /// </summary>
     public void Resume()
     {
         FindObjectOfType<AudioManager>().Play("Click");
@@ -43,6 +44,9 @@ public class PauseMenu : MonoBehaviour
         LookRaise();
     }
 
+    /// <summary>
+    /// activates pause menu, stops time, unlocks cursor, and decreases sensitivity to 0
+    /// </summary>
     public void Pause()
     {
         FindObjectOfType<AudioManager>().Play("Click");
@@ -53,6 +57,9 @@ public class PauseMenu : MonoBehaviour
         LookLower();
     }
 
+    /// <summary>
+    /// Resumes game, unlocks cursor, and returns to main menu
+    /// </summary>
     public void GiveUp()
     {
         FindObjectOfType<AudioManager>().Play("Click");
@@ -61,6 +68,9 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    /// <summary>
+    /// Decreases sensitivity to 0
+    /// </summary>
     public void LookRaise()
     {
         float sensValue = SharedValues.mockSens;
@@ -69,10 +79,11 @@ public class PauseMenu : MonoBehaviour
         {
             SharedValues.sharedSens += sensValue;
         } 
-
-        
     }
 
+    /// <summary>
+    /// Returns sensitivity to 'original' value
+    /// </summary>
     public void LookLower()
     {
         float sensValue = SharedValues.mockSens;
@@ -83,12 +94,18 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Saves current gamestate
+    /// </summary>
     public void Save()
     {
         FindObjectOfType<AudioManager>().Play("Click");
         loadmanage.Save("recent");
     }
 
+    /// <summary>
+    /// Loads most recent save
+    /// </summary>
     public void Load()
     {
         FindObjectOfType<AudioManager>().Play("Click");
@@ -100,18 +117,15 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Takes in health value and checks if it is equal to or less than 0. If it is, decreases sensitivity to 0
+    /// </summary>
+    /// <param name="flo"></param>
     public void HealthCheck(float flo)
     {
-        float value = flo;
-
-        if (value < 1)
+        if (flo <= 0)
         {
             LookLower();
         }
-    }
-
-    public void PullWinScreen()
-    {
-        
     }
 }

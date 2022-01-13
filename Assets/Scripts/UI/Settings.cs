@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
 {
-    private void Start()
-    {
-        
-    }
+    /// <summary>
+    /// Takes in toggle value and updates SharedValues togglerun bool. Then saves to playerprefs
+    /// </summary>
+    /// <param name="value"></param>
     public void setRun(bool value)
     {
         FindObjectOfType<AudioManager>().Play("Click");
@@ -18,6 +18,10 @@ public class Settings : MonoBehaviour
         SharedValues.saveValues();
     }
 
+    /// <summary>
+    /// Takes in toggle value and updates SharedValues togglecrouch bool. Then saves to playerprefs
+    /// </summary>
+    /// <param name="value"></param>
     public void setCrouch(bool value)
     {
         FindObjectOfType<AudioManager>().Play("Click");
@@ -26,6 +30,10 @@ public class Settings : MonoBehaviour
         SharedValues.saveValues();
     }
 
+    /// <summary>
+    /// Takes in slider value, multiplies to account for low input values. Then saves to playerprefs
+    /// </summary>
+    /// <param name="value"></param>
     public void setShare(float value)
     {
         SharedValues.sharedSens = value * .001f;
@@ -33,6 +41,10 @@ public class Settings : MonoBehaviour
         SharedValues.saveValues();
     }
 
+    /// <summary>
+    /// Takes in toggle value and updates SharedValues togglebob bool. Then saves to playerprefs
+    /// </summary>
+    /// <param name="value"></param>
     public void setBob(bool value)
     {
         SharedValues.headBob = value;

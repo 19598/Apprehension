@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Plays main menu music
+/// </summary>
 public class Music : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         FindObjectOfType<AudioManager>().Play("MainMenuMusic");
